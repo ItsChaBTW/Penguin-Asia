@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search results from Penguin Sales & Services">
+    <title>Search Results - Penguin Sales & Services</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #D4A76A;
+            --accent: #8B6B43;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .border-accent {
+            border-color: var(--accent);
+        }
+        
+        .hover\:bg-primary:hover {
+            background-color: var(--primary);
+        }
+        
+        .hover\:bg-accent:hover {
+            background-color: var(--accent);
+        }
+        
+        .hover\:text-primary:hover {
+            color: var(--primary);
+        }
+        
+        .hover\:text-accent:hover {
+            color: var(--accent);
+        }
+        
+        .hover\:border-primary:hover {
+            border-color: var(--primary);
+        }
+        
+        .hover\:border-accent:hover {
+            border-color: var(--accent);
+        }
+        
+        .focus\:border-primary:focus {
+            border-color: var(--primary);
+        }
+        
+        .focus\:ring-primary:focus {
+            --tw-ring-color: var(--primary);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center group transition-all duration-300">
+                        <div class="bg-gray-100 rounded-full p-2 shadow-sm overflow-hidden transform group-hover:shadow-md group-hover:bg-primary/10 transition-all duration-300">
+                            <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 w-10 object-contain">
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-3xl font-bold text-primary leading-tight">Penguin</span>
+                            <span class="block text-sm text-accent tracking-wider hidden md:block">SALES & SERVICES</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Home</a>
+                    <a href="about.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">About</a>
+                    <div class="relative group">
+                        <button class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20 transform origin-top scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+                            <a href="bridal-car.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Contact</a>
+                    <a href="contact.html" class="ml-4 bg-primary hover:bg-accent text-white py-2 px-5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md">Get a Quote</a>
+                </div>
+                
+                <!-- Desktop Search Form -->
+                <div class="hidden lg:block relative">
+                    <form action="search-results.html" method="get" class="flex items-center">
+                        <input type="text" name="query" placeholder="Search..." class="bg-gray-100 border border-gray-200 rounded-l-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary w-40 transition-all duration-300 focus:w-56">
+                        <button type="submit" class="bg-primary hover:bg-accent text-white rounded-r-full py-2 px-4 -ml-2 transition-colors duration-300">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="nav-toggle" class="p-2 rounded-md text-primary hover:bg-gray-100 focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="nav-content" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-col space-y-1">
+                    <a href="index.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Home</a>
+                    <a href="about.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">About</a>
+                    
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full text-left py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300 flex justify-between items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="mobile-services-menu" class="hidden bg-gray-50 rounded-md mt-1 mb-2 overflow-hidden">
+                            <a href="bridal-car.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Contact</a>
+                    <a href="contact.html" class="py-2 px-4 mt-2 bg-primary text-white text-center rounded-full">Get a Quote</a>
+                    
+                    <!-- Mobile Search -->
+                    <form action="search-results.html" method="get" class="relative mt-3">
+                        <input type="text" name="query" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="absolute right-0 top-0 mr-3 mt-2 text-gray-500 hover:text-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title Banner -->
+    <section class="relative bg-primary text-white py-16" style="background-image: url('https://images.pexels.com/photos/7112/woman-typing-writing-windows.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 z-10 relative">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Search Results</h1>
+            <p id="search-summary" class="text-xl md:text-2xl mb-2">Showing results for: <span id="search-term" class="font-semibold"></span></p>
+            <nav class="text-sm" aria-label="Breadcrumb">
+                <ol class="flex">
+                    <li><a href="index.html" class="hover:text-accent">Home</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-white/80">Search</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <form action="search-results.html" method="get" class="flex items-center max-w-3xl mx-auto">
+                    <input type="text" id="search-box" name="query" placeholder="Refine your search..." class="w-full bg-gray-100 border border-gray-200 rounded-l-lg py-3 px-5 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="bg-primary hover:bg-accent text-white rounded-r-lg py-3 px-6 transition-colors duration-300">
+                        <i class="fas fa-search mr-2"></i> Search
+                    </button>
+                </form>
+            </div>
+            
+            <div id="search-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Results will be populated by JavaScript -->
+                <div class="bg-gray-50 p-8 rounded-lg text-center col-span-full">
+                    <i class="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
+                    <p>Loading search results...</p>
+                </div>
+            </div>
+            
+            <div id="no-results" class="hidden text-center py-12">
+                <i class="fas fa-search text-5xl text-gray-300 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">No results found</h3>
+                <p class="text-gray-600 mb-6">We couldn't find any matches for your search term.</p>
+                <a href="index.html" class="inline-flex items-center justify-center bg-primary text-white hover:bg-accent transition-all duration-300 py-2 px-6 rounded-full shadow-md hover:shadow-lg">
+                    <i class="fas fa-home mr-2"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <a href="index.html" class="flex items-center mb-4">
+                        <div class="bg-white rounded-full p-2 shadow-sm overflow-hidden">
+                            <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 w-10 object-contain">
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-2xl font-bold text-primary leading-tight">Penguin</span>
+                            <span class="block text-xs text-gray-400 tracking-wider">SALES & SERVICES</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your trusted partner for quality services and products. We deliver excellence and reliability in everything we do.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Contact</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Terms & Conditions</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Information</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 Main Street, City, Country 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i>
+                            <span class="text-gray-400">+123 456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@penguinservices.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-primary mr-3"></i>
+                            <span class="text-gray-400">Mon-Fri: 9am - 5pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2023 Penguin Sales & Services. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="terms.html" class="text-gray-500 text-sm hover:text-primary transition-colors duration-300">Terms & Conditions</a>
+                    <a href="privacy.html" class="text-gray-500 text-sm hover:text-primary transition-colors duration-300">Privacy Policy</a>
+                    <a href="sitemap.html" class="text-gray-500 text-sm hover:text-primary transition-colors duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    
+    <!-- Search Results JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            document.getElementById('nav-toggle').addEventListener('click', function() {
+                document.getElementById('nav-content').classList.toggle('hidden');
+            });
+            
+            // Mobile Services Dropdown
+            document.getElementById('mobile-services-btn').addEventListener('click', function() {
+                document.getElementById('mobile-services-menu').classList.toggle('hidden');
+            });
+            
+            // Search functionality
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+            
+            if (query) {
+                // Update the search term in the header
+                document.getElementById('search-term').textContent = query;
+                document.getElementById('search-box').value = query;
+                
+                // Mock service data - in a real application this would come from a database
+                const services = [
+                    {
+                        title: "Bridal Car Services",
+                        description: "Luxury vehicles for your special day with professional chauffeurs.",
+                        url: "bridal-car.html",
+                        image: "https://images.pexels.com/photos/1682497/pexels-photo-1682497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Towing Services 24/7",
+                        description: "Emergency towing and roadside assistance available 24/7.",
+                        url: "towing.html",
+                        image: "https://images.pexels.com/photos/1046648/pexels-photo-1046648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Trucking Services",
+                        description: "Reliable logistics and transportation solutions for business and individual needs.",
+                        url: "trucking.html",
+                        image: "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Heavy Equipment Rental",
+                        description: "Construction equipment rentals for projects of all sizes.",
+                        url: "equipment.html",
+                        image: "https://images.pexels.com/photos/2138126/pexels-photo-2138126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Construction & Maintenance",
+                        description: "Professional construction and property maintenance services.",
+                        url: "construction.html",
+                        image: "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Furniture",
+                        description: "Quality furniture for homes and offices, with custom options available.",
+                        url: "furniture.html",
+                        image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    },
+                    {
+                        title: "Auto Parts",
+                        description: "Genuine and aftermarket auto parts for all makes and models.",
+                        url: "auto-parts.html",
+                        image: "https://images.pexels.com/photos/1207966/pexels-photo-1207966.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    }
+                ];
+                
+                // Simple search implementation
+                const normalizedQuery = query.toLowerCase();
+                const results = services.filter(service => 
+                    service.title.toLowerCase().includes(normalizedQuery) || 
+                    service.description.toLowerCase().includes(normalizedQuery)
+                );
+                
+                const resultsContainer = document.getElementById('search-results');
+                
+                // Clear the loading indicator
+                resultsContainer.innerHTML = '';
+                
+                if (results.length > 0) {
+                    // Update the results count
+                    document.getElementById('search-summary').textContent = `Found ${results.length} results for: "${query}"`;
+                    
+                    // Display search results
+                    results.forEach(result => {
+                        const resultElement = document.createElement('div');
+                        resultElement.className = 'bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1';
+                        resultElement.innerHTML = `
+                            <div class="h-48 overflow-hidden">
+                                <img src="${result.image}" alt="${result.title}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">${result.title}</h3>
+                                <p class="text-gray-600 mb-4">${result.description}</p>
+                                <a href="${result.url}" class="inline-flex items-center text-primary font-medium hover:text-accent transition-colors duration-300">
+                                    View Details
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        `;
+                        resultsContainer.appendChild(resultElement);
+                    });
+                } else {
+                    // Show no results message
+                    document.getElementById('no-results').classList.remove('hidden');
+                    document.getElementById('search-summary').textContent = `No results found for: "${query}"`;
+                }
+            } else {
+                // If no query provided
+                document.getElementById('search-term').textContent = 'all services';
+                document.getElementById('search-summary').textContent = 'Browse all our services';
+                
+                // Redirect to homepage after 3 seconds
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html> 
