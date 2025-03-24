@@ -1,0 +1,211 @@
+/* Custom Styles for Penguin Sales & Services */
+
+/* Common styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero section background image */
+.hero-bg {
+    background-image: url('https://source.unsplash.com/6anudmpILw4/1920x1080');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Transitions & Animations */
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Service cards hover effect */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover animations */
+.btn-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Staggered fade-in for multiple elements */
+.stagger-fade-in > * {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Mobile Navigation Styles */
+@media (max-width: 1023px) {
+    #nav-content {
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+    }
+    
+    #nav-content.hidden {
+        max-height: 0;
+    }
+    
+    #nav-content:not(.hidden) {
+        max-height: 500px;
+        border-top: 1px solid #eee;
+        margin-top: 1rem;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0F4C81;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a3b65;
+}
+
+/* Testimonial card hover effect */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Style for FAQs */
+.faq-btn i {
+    transition: transform 0.3s ease;
+}
+
+.faq-btn:not(.collapsed) i {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-content:not(.hidden) {
+    max-height: 200px;
+}
+
+/* Image hover effects */
+.img-hover {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(105%);
+}
+
+/* Add slight shadow to navbar when scrolled */
+.navbar-scrolled {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0F4C81;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 0.8;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* Add styles for the dark background with gold accents */
+.bg-dark {
+    background-color: #212121;
+}
+
+.text-gold {
+    color: #D4A76A;
+}
+
+.border-gold {
+    border-color: #D4A76A;
+}
+
+/* Add a gold gradient background */
+.bg-gold-gradient {
+    background: linear-gradient(135deg, #D4A76A 0%, #8B6B43 100%);
+}
+
+/* Gold underline for headings */
+.heading-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.heading-underline:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #D4A76A;
+}
+
+.heading-underline.centered:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Gold border button */
+.btn-gold-outline {
+    border: 2px solid #D4A76A;
+    color: #D4A76A;
+    transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+    background-color: #D4A76A;
+    color: #212121;
+}

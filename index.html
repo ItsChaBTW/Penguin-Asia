@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Penguin Sales & Services Company - We Make It Happen. Providing bridal car services, towing, trucking, equipment rental, construction services, and more.">
+    <title>Penguin Sales & Services Company | We Make It Happen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4A76A', // Gold/bronze from logo
+                        secondary: '#F8F8F8',
+                        accent: '#8B6B43',  // Darker gold/bronze
+                        dark: '#212121',    // Dark background like in logo
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-secondary">
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-12 mr-3">
+                        <span class="text-2xl font-bold text-primary">
+                            <span class="text-3xl">Penguin</span> <span class="hidden md:inline">Sales & Services</span>
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Home</a>
+                    <a href="about.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">About</a>
+                    <div class="relative group">
+                        <button class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20 transform origin-top scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+                            <a href="bridal-car.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Contact</a>
+                    <a href="contact.html" class="ml-4 bg-primary hover:bg-accent text-white py-2 px-5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md">Get a Quote</a>
+                </div>
+                
+                <!-- Search Button (Desktop) -->
+                <div class="hidden lg:flex items-center">
+                    <button class="p-2 text-primary hover:text-gold transition-colors duration-300" id="search-toggle">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="nav-toggle" class="p-2 rounded-md text-primary hover:bg-gray-100 focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="nav-content" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-col space-y-1">
+                    <a href="index.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Home</a>
+                    <a href="about.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">About</a>
+                    
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full text-left py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300 flex justify-between items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="mobile-services-menu" class="hidden bg-gray-50 rounded-md mt-1 mb-2 overflow-hidden">
+                            <a href="bridal-car.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Contact</a>
+                    <a href="contact.html" class="py-2 px-4 mt-2 bg-primary text-white text-center rounded-full">Get a Quote</a>
+                    
+                    <!-- Mobile Search -->
+                    <div class="relative mt-3">
+                        <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 focus:outline-none">
+                        <button class="absolute right-0 top-0 mr-3 mt-2">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Overlay (Hidden by default) -->
+        <div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+            <div class="container mx-auto h-full flex items-center justify-center px-4">
+                <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl">
+                    <div class="flex items-center mb-4">
+                        <h3 class="text-xl font-bold flex-grow">Search Penguin Services</h3>
+                        <button id="close-search" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <input type="text" placeholder="Type to search..." class="w-full bg-gray-100 border border-gray-200 rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-0 top-0 bg-primary hover:bg-accent text-white rounded-full h-full px-6 transition-colors duration-300">
+                            <i class="fas fa-search mr-2"></i> Search
+                        </button>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p>Popular searches: Bridal cars, Towing service, Equipment rental</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary text-white py-20 hero-section" style="background-image: url('https://source.unsplash.com/6anudmpILw4/1920x1080'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 z-10 relative">
+            <div class="md:w-2/3">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Penguin Sales & Services Company</h1>
+                <p class="text-xl md:text-2xl mb-8">We Make It Happen.</p>
+                <p class="text-lg mb-8">Providing comprehensive solutions for all your service needs - from transportation to construction, we've got you covered.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="contact.html" class="bg-accent hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Contact Us</a>
+                    <a href="#services" class="bg-transparent hover:bg-white hover:text-primary text-white font-bold py-3 px-6 rounded-full border border-white transition duration-300">Our Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Bridal Car Services -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <div class="h-48 bg-gray-200">
+                        <img src="https://source.unsplash.com/YZ1QPpM8Y8A/800x600" alt="Bridal Car Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Bridal Car Services</h3>
+                        <p class="text-gray-700 mb-4">Make your special day perfect with our luxury bridal car services. We offer a variety of elegant vehicles to match your wedding theme.</p>
+                        <a href="bridal-car.html" class="text-primary hover:text-accent font-bold">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Towing Services -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <div class="h-48 bg-gray-200">
+                        <img src="https://source.unsplash.com/Dsl-NMK9BVc/800x600" alt="Towing Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Towing Services 24/7</h3>
+                        <p class="text-gray-700 mb-4">Professional and reliable towing services available 24/7. We're there for you whenever you need roadside assistance.</p>
+                        <a href="towing.html" class="text-primary hover:text-accent font-bold">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Trucking Services -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <div class="h-48 bg-gray-200">
+                        <img src="https://source.unsplash.com/1EVNCo7PDOY/800x600" alt="Trucking Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Trucking Services</h3>
+                        <p class="text-gray-700 mb-4">Efficient and reliable transportation solutions for your cargo. We handle everything from small deliveries to large freight.</p>
+                        <a href="trucking.html" class="text-primary hover:text-accent font-bold">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Heavy Equipment Rental -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <div class="h-48 bg-gray-200">
+                        <img src="https://source.unsplash.com/c7E7ryITtEc/800x600" alt="Heavy Equipment Rental" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Heavy Equipment Rental</h3>
+                        <p class="text-gray-700 mb-4">Quality equipment rentals for construction and industrial projects. Our well-maintained fleet is ready for your next project.</p>
+                        <a href="equipment.html" class="text-primary hover:text-accent font-bold">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#all-services" class="bg-primary hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Why Choose Penguin Sales & Services?</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Comprehensive Services</h3>
+                                <p class="text-gray-700">From transportation to construction, we offer a wide range of services to meet all your needs.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Experienced Team</h3>
+                                <p class="text-gray-700">Our team of professionals has years of experience in their respective fields.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Quality Equipment</h3>
+                                <p class="text-gray-700">We use only the best equipment and vehicles to ensure top-notch service.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Customer-Focused</h3>
+                                <p class="text-gray-700">Your satisfaction is our priority. We strive to exceed expectations with every service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://source.unsplash.com/5U_28ojjgms/800x600" alt="About Penguin Services" class="w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The bridal car service was exceptional. The car was immaculate and the driver was professional. Made our wedding day even more special!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://source.unsplash.com/7YVZYZeITc8/100x100" alt="Maria Santos" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Maria Santos</h4>
+                            <p class="text-sm text-gray-600">Wedding Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"I was stranded on the highway at 2 AM and Penguin's towing service came to my rescue quickly. Excellent service when I needed it most!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://source.unsplash.com/d1UPkiFd04A/100x100" alt="John Reyes" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John Reyes</h4>
+                            <p class="text-sm text-gray-600">Towing Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"We rented construction equipment for our building project and everything was in perfect condition. The staff was knowledgeable and helpful."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://source.unsplash.com/QXevDflbl8A/100x100" alt="Robert Tan" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Robert Tan</h4>
+                            <p class="text-sm text-gray-600">Construction Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gold">Ready to get started?</h2>
+            <p class="text-xl mb-8">Contact us today to learn more about our services and how we can help you.</p>
+            <a href="contact.html" class="btn-gold-outline font-bold py-3 px-8 rounded-full inline-block">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-btn w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-bold">What areas do you service?</span>
+                            <i class="fas fa-plus text-primary"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-gray-700">
+                            <p>We provide our services throughout metropolitan areas and nearby provinces. For specific service area information, please contact our customer service team.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-btn w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-bold">How do I book a bridal car?</span>
+                            <i class="fas fa-plus text-primary"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-gray-700">
+                            <p>You can book our bridal car services by filling out the contact form on our website, calling our office, or visiting us in person. We recommend booking at least 3 months in advance to ensure availability.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-btn w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-bold">What types of equipment do you rent out?</span>
+                            <i class="fas fa-plus text-primary"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-gray-700">
+                            <p>We offer a wide range of heavy equipment including excavators, bulldozers, backhoes, loaders, compactors, and more. Visit our equipment rental page for a complete list with specifications.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-btn w-full text-left p-4 focus:outline-none flex justify-between items-center">
+                            <span class="font-bold">Do you offer 24/7 towing services?</span>
+                            <i class="fas fa-plus text-primary"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-gray-700">
+                            <p>Yes, our towing services are available 24 hours a day, 7 days a week, including holidays. We understand that vehicle breakdowns can happen at any time, and we're always ready to help.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Penguin Sales & Services</h3>
+                    <p class="mb-4">We Make It Happen.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gold"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gold"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-gold"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-accent">Home</a></li>
+                        <li><a href="about.html" class="hover:text-accent">About Us</a></li>
+                        <li><a href="#services" class="hover:text-accent">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-accent">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="bridal-car.html" class="hover:text-accent">Bridal Car Services</a></li>
+                        <li><a href="towing.html" class="hover:text-accent">Towing Services</a></li>
+                        <li><a href="trucking.html" class="hover:text-accent">Trucking Services</a></li>
+                        <li><a href="equipment.html" class="hover:text-accent">Equipment Rental</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>123 Main Street, City, Country</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+123 456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>E-Mail: info.qpssco@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold opacity-50 mt-8 pt-8 text-center">
+                <p>&copy; 2023 Penguin Sales & Services Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
