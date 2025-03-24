@@ -30,11 +30,14 @@
             <nav class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center">
-                        <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-12 mr-3">
-                        <span class="text-2xl font-bold text-primary">
-                            <span class="text-3xl">Penguin</span> <span class="hidden md:inline">Sales & Services</span>
-                        </span>
+                    <a href="index.html" class="flex items-center group transition-all duration-300">
+                        <div class="bg-gray-100 rounded-full p-2 shadow-sm overflow-hidden transform group-hover:shadow-md group-hover:bg-primary/10 transition-all duration-300">
+                            <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 w-10 object-contain">
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-3xl font-bold text-primary leading-tight">Penguin</span>
+                            <span class="block text-sm text-accent tracking-wider hidden md:block">SALES & SERVICES</span>
+                        </div>
                     </a>
                 </div>
                 
@@ -138,7 +141,7 @@
     </header>
 
     <!-- Page Title Banner -->
-    <section class="relative bg-primary text-white py-16" style="background-image: url('https://source.unsplash.com/xoU52jUVUXA/1920x1080'); background-size: cover; background-position: center;">
+    <section class="relative bg-primary text-white py-16" style="background-image: url('https://images.pexels.com/photos/821754/pexels-photo-821754.jpeg'); background-size: cover; background-position: center;">
         <div class="container mx-auto px-4 z-10 relative">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p class="text-xl md:text-2xl mb-2">We're here to help with all your service needs</p>
@@ -153,138 +156,101 @@
         <div class="absolute inset-0 bg-black opacity-30"></div>
     </section>
 
-    <!-- Contact Information -->
-    <section class="py-16 bg-white">
+    <!-- Contact Section -->
+    <section class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Phone -->
-                <div class="bg-secondary rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-all">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-phone-alt text-2xl"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="fade-in-right">
+                    <h2 class="text-3xl font-bold mb-8">Get In Touch</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Phone -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-primary text-white">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-1">Phone</h3>
+                                <p class="text-gray-700">General Inquiries: (123) 456-7890</p>
+                                <p class="text-gray-700">24/7 Towing Service: (123) 456-7899</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-primary text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-1">Email</h3>
+                                <p class="text-gray-700">General Inquiries: info@penguinservices.com</p>
+                                <p class="text-gray-700">Customer Support: support@penguinservices.com</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Address -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-primary text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-1">Office Address</h3>
+                                <p class="text-gray-700">123 Main Street, Suite 456</p>
+                                <p class="text-gray-700">Anytown, State 12345</p>
+                                <p class="text-gray-700 mt-2"><strong>Hours:</strong> Monday to Friday, 8:00 AM to 5:00 PM</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Call Us</h3>
-                    <p class="text-gray-700 mb-2">General Inquiries:</p>
-                    <p class="text-primary font-bold mb-4">+123 456 7890</p>
-                    <p class="text-gray-700 mb-2">24/7 Towing Service:</p>
-                    <p class="text-primary font-bold">+123 456 7899</p>
                 </div>
                 
-                <!-- Email -->
-                <div class="bg-secondary rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-all">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Email Us</h3>
-                    <p class="text-gray-700 mb-2">General Inquiries:</p>
-                    <p class="text-primary font-bold mb-4">info@penguin.asia</p>
-                    <p class="text-gray-700 mb-2">Customer Support:</p>
-                    <p class="text-primary font-bold">support@penguin.asia</p>
-                </div>
-                
-                <!-- Office -->
-                <div class="bg-secondary rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-all">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-map-marker-alt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Visit Us</h3>
-                    <p class="text-gray-700 mb-2">Main Office:</p>
-                    <p class="text-primary font-bold mb-4">123 Main Street, City, Country</p>
-                    <p class="text-gray-700 mb-2">Operating Hours:</p>
-                    <p class="text-primary font-bold">Mon-Fri: 8am - 6pm, Sat: 9am - 3pm</p>
-                </div>
-            </div>
-            
-            <div class="flex flex-wrap">
                 <!-- Contact Form -->
-                <div class="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-                    <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in-left">
+                    <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="name" class="block text-gray-700 mb-2">Your Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                             </div>
                             <div>
                                 <label for="email" class="block text-gray-700 mb-2">Your Email <span class="text-red-500">*</span></label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                             </div>
                         </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-gray-700 mb-2">Service Interest</label>
+                                <select id="service" name="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="">Select a Service</option>
+                                    <option value="equipment-rental">Equipment Rental</option>
+                                    <option value="equipment-sales">Equipment Sales</option>
+                                    <option value="parts-service">Parts & Service</option>
+                                    <option value="trucking">Trucking Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
                         </div>
-                        <div>
-                            <label for="service" class="block text-gray-700 mb-2">Service of Interest</label>
-                            <select id="service" name="service" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
-                                <option value="">Select a service</option>
-                                <option value="bridal-car">Bridal Car Services</option>
-                                <option value="towing">Towing Services</option>
-                                <option value="trucking">Trucking Services</option>
-                                <option value="equipment-rental">Heavy Equipment Rental</option>
-                                <option value="construction">Construction & Maintenance</option>
-                                <option value="furniture">Furniture</option>
-                                <option value="auto-parts">Auto Parts</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div>
+                        
+                        <div class="mb-6">
                             <label for="message" class="block text-gray-700 mb-2">Your Message <span class="text-red-500">*</span></label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                         </div>
-                        <div class="flex items-start">
-                            <input type="checkbox" id="privacy" name="privacy" class="mt-1 mr-2" required>
-                            <label for="privacy" class="text-sm text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Privacy Policy</a> and consent to be contacted regarding my inquiry.</label>
+                        
+                        <div class="mb-6">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" name="privacy" class="form-checkbox text-primary" required>
+                                <span class="ml-2 text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Privacy Policy</a> <span class="text-red-500">*</span></span>
+                            </label>
                         </div>
-                        <div>
-                            <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-md transition duration-300">Send Message</button>
-                        </div>
+                        
+                        <button type="submit" class="inline-block bg-primary text-white py-3 px-6 rounded-full font-bold hover-btn">Send Message</button>
                     </form>
-                </div>
-                
-                <!-- Map and Location Info -->
-                <div class="w-full lg:w-1/2 lg:pl-8">
-                    <h2 class="text-3xl font-bold mb-8">Our Locations</h2>
-                    
-                    <!-- Map placeholder - replace with actual map embed -->
-                    <div class="bg-gray-200 h-80 w-full rounded-lg mb-8">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2820863970467!2d106.82673941537818!3d-6.227483462728659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e8c7d8a23f%3A0x3fdca4d6a6a94dc4!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1634579601814!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    
-                    <!-- Locations List -->
-                    <div class="space-y-6">
-                        <div class="flex">
-                            <div class="mr-4 text-primary">
-                                <i class="fas fa-building text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Main Office</h3>
-                                <p class="text-gray-700">123 Main Street, City, Country</p>
-                                <p class="text-gray-700">Phone: +123 456 7890</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="mr-4 text-primary">
-                                <i class="fas fa-warehouse text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Service Center</h3>
-                                <p class="text-gray-700">456 Service Road, Industrial Area, City</p>
-                                <p class="text-gray-700">Phone: +123 456 7891</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="mr-4 text-primary">
-                                <i class="fas fa-store text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Showroom</h3>
-                                <p class="text-gray-700">789 Display Avenue, Shopping District, City</p>
-                                <p class="text-gray-700">Phone: +123 456 7892</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -406,5 +372,6 @@
         });
     </script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html> 

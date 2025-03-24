@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Penguin Sales & Services Company - Trucking Services. Professional and reliable transportation solutions for all your cargo and freight needs.">
+    <title>Trucking Services | Penguin Sales & Services Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4A76A', // Gold/bronze from logo
+                        secondary: '#F8F8F8',
+                        accent: '#8B6B43',  // Darker gold/bronze
+                        dark: '#212121',    // Dark background like in logo
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-secondary">
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center group transition-all duration-300">
+                        <div class="bg-gray-100 rounded-full p-2 shadow-sm overflow-hidden transform group-hover:shadow-md group-hover:bg-primary/10 transition-all duration-300">
+                            <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 w-10 object-contain">
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-3xl font-bold text-primary leading-tight">Penguin</span>
+                            <span class="block text-sm text-accent tracking-wider hidden md:block">SALES & SERVICES</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Home</a>
+                    <a href="about.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">About</a>
+                    <div class="relative group">
+                        <button class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-gold flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20 transform origin-top scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+                            <a href="bridal-car.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block px-4 py-2 text-sm bg-primary text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Contact</a>
+                    <a href="contact.html" class="ml-4 bg-primary hover:bg-accent text-white py-2 px-5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md">Get a Quote</a>
+                </div>
+                
+                <!-- Search Button (Desktop) -->
+                <div class="hidden lg:flex items-center">
+                    <button class="p-2 text-primary hover:text-gold transition-colors duration-300" id="search-toggle">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="nav-toggle" class="p-2 rounded-md text-primary hover:bg-gray-100 focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="nav-content" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-col space-y-1">
+                    <a href="index.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Home</a>
+                    <a href="about.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">About</a>
+                    
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full text-left py-2 px-3 bg-primary text-white rounded-md transition-all duration-300 flex justify-between items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="mobile-services-menu" class="hidden bg-gray-50 rounded-md mt-1 mb-2 overflow-hidden">
+                            <a href="bridal-car.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block py-2 px-5 bg-primary/20 text-primary font-medium">Trucking Services</a>
+                            <a href="equipment.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Contact</a>
+                    <a href="contact.html" class="py-2 px-4 mt-2 bg-primary text-white text-center rounded-full">Get a Quote</a>
+                    
+                    <!-- Mobile Search -->
+                    <div class="relative mt-3">
+                        <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 focus:outline-none">
+                        <button class="absolute right-0 top-0 mr-3 mt-2">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Overlay (Hidden by default) -->
+        <div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+            <div class="container mx-auto h-full flex items-center justify-center px-4">
+                <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl">
+                    <div class="flex items-center mb-4">
+                        <h3 class="text-xl font-bold flex-grow">Search Penguin Services</h3>
+                        <button id="close-search" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <input type="text" placeholder="Type to search..." class="w-full bg-gray-100 border border-gray-200 rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-0 top-0 bg-primary hover:bg-accent text-white rounded-full h-full px-6 transition-colors duration-300">
+                            <i class="fas fa-search mr-2"></i> Search
+                        </button>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p>Popular searches: Bridal cars, Towing service, Equipment rental</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title Banner -->
+    <section class="relative bg-primary text-white py-16" style="background-image: url('https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 z-10 relative">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Trucking Services</h1>
+            <p class="text-xl md:text-2xl mb-2">Reliable logistics and transport solutions for your cargo</p>
+            <nav class="text-sm" aria-label="Breadcrumb">
+                <ol class="flex">
+                    <li><a href="index.html" class="hover:text-accent">Home</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-white/80">Trucking Services</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Professional Trucking & Logistics Services</h2>
+                    <p class="text-gray-700 mb-6">Penguin Sales & Services offers comprehensive trucking and logistics solutions tailored to meet your transportation needs. With our fleet of well-maintained trucks and experienced drivers, we ensure reliable, safe, and timely delivery of your cargo.</p>
+                    
+                    <p class="text-gray-700 mb-6">Whether you need to transport goods across cities or manage complex logistics operations, our team is equipped to handle diverse cargo requirements with professionalism and efficiency.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Modern Fleet</h3>
+                                <p class="text-gray-700">Well-maintained trucks of various sizes to suit different cargo needs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Experienced Drivers</h3>
+                                <p class="text-gray-700">Professional and licensed drivers with extensive experience</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Nationwide Coverage</h3>
+                                <p class="text-gray-700">Transportation services across all major cities and regions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Cargo Safety</h3>
+                                <p class="text-gray-700">Advanced tracking systems and secure handling procedures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.pexels.com/photos/93398/pexels-photo-93398.jpeg" alt="Trucking Services" class="w-full img-hover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Our Trucking Services</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Reliable transportation solutions for all your logistics needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-100">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg" alt="General Freight" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">General Freight</h3>
+                        <p class="text-gray-700 mb-4">Reliable transportation of general goods and merchandise across local and long-distance routes.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Full Truckload (FTL) Services</li>
+                            <li>Less Than Truckload (LTL) Options</li>
+                            <li>Expedited Delivery</li>
+                            <li>Regular Scheduled Routes</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-200">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/93398/pexels-photo-93398.jpeg" alt="Heavy Haul" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Heavy Haul</h3>
+                        <p class="text-gray-700 mb-4">Specialized transportation for oversized and heavy equipment with proper permits and safety measures.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Oversized Load Transport</li>
+                            <li>Equipment Delivery</li>
+                            <li>Specialized Trailers</li>
+                            <li>Permit Management</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-300">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/2085956/pexels-photo-2085956.jpeg" alt="Dump Truck Services" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Dump Truck Services</h3>
+                        <p class="text-gray-700 mb-4">Efficient transportation of aggregate, dirt, sand, and construction materials to and from job sites.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Construction Site Delivery</li>
+                            <li>Aggregate Hauling</li>
+                            <li>Demolition Debris Removal</li>
+                            <li>Various Truck Sizes Available</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-400">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/2194184/pexels-photo-2194184.jpeg" alt="Refrigerated Transport" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Refrigerated Transport</h3>
+                        <p class="text-gray-700 mb-4">Temperature-controlled transportation for perishable goods, food products, and sensitive materials.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Precise Temperature Control</li>
+                            <li>Food-Grade Standards</li>
+                            <li>Real-time Temperature Monitoring</li>
+                            <li>Cold Chain Management</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-500">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3849167/pexels-photo-3849167.jpeg" alt="Flatbed Transport" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Flatbed Transport</h3>
+                        <p class="text-gray-700 mb-4">Open-deck transportation for large machinery, building materials, and other items requiring side loading.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Standard Flatbeds</li>
+                            <li>Step Deck Trailers</li>
+                            <li>Double Drop Trailers</li>
+                            <li>Specialized Securing Methods</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover-card fade-in-up delay-600">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/4481951/pexels-photo-4481951.jpeg" alt="Container Transport" class="w-full h-full object-cover transition-transform duration-500 img-hover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Container Transport</h3>
+                        <p class="text-gray-700 mb-4">Intermodal container transportation from ports to distribution centers and final destinations.</p>
+                        <ul class="text-gray-700 mb-6 list-disc pl-5">
+                            <li>Port Pickup and Delivery</li>
+                            <li>20ft and 40ft Container Handling</li>
+                            <li>Transloading Services</li>
+                            <li>Container Storage Solutions</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Our Trucking Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-primary/10 inline-flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                        <i class="fas fa-truck text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Modern Fleet</h3>
+                    <p class="text-gray-700">Our regularly maintained fleet of trucks ensures reliable and efficient transportation for all your cargo needs.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-primary/10 inline-flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Safety First</h3>
+                    <p class="text-gray-700">We prioritize cargo and road safety with strict protocols, regular training, and advanced tracking systems.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-primary/10 inline-flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                        <i class="fas fa-route text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Nationwide Coverage</h3>
+                    <p class="text-gray-700">Our extensive network allows us to provide trucking services across all major cities and regions.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center">
+                    <div class="bg-primary/10 inline-flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                        <i class="fas fa-hands-helping text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Personalized Service</h3>
+                    <p class="text-gray-700">We tailor our trucking solutions to match your specific requirements and business objectives.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">Your Trusted Logistics Partner</h3>
+                            <p class="text-gray-700 mb-6">At Penguin Sales & Services, we understand that reliable transportation is crucial for your business operations. Our experienced team works closely with you to develop logistics solutions that enhance your supply chain efficiency.</p>
+                            
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <div class="mr-2 text-primary mt-1">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="text-gray-700">GPS tracking for real-time cargo monitoring</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="mr-2 text-primary mt-1">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="text-gray-700">Flexible scheduling to accommodate urgent deliveries</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="mr-2 text-primary mt-1">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="text-gray-700">Comprehensive insurance coverage for cargo protection</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="mr-2 text-primary mt-1">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="text-gray-700">Transparent pricing with no hidden costs</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-full inline-block transition duration-300">Get a Custom Quote</a>
+                        </div>
+                        <div class="hidden lg:block">
+                            <img src="https://images.pexels.com/photos/4554068/pexels-photo-4554068.jpeg" alt="Trucking Services" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Ship Your Cargo?</h2>
+            <p class="text-white/90 mb-8 max-w-3xl mx-auto">Contact our team today to discuss your transportation needs and get a customized trucking solution tailored to your business requirements.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full inline-block transition duration-300">Request a Quote</a>
+                <a href="tel:+123456789" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <span class="text-xl font-bold">What types of trucks do you have in your fleet?</span>
+                        <i class="fas fa-plus text-primary transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-6 pt-0 bg-white">
+                        <p class="text-gray-700">Our diverse fleet includes various types of trucks to accommodate different cargo requirements. We have 10-wheeler trucks, wing vans, closed vans, reefer vans for temperature-controlled cargo, flatbeds for oversized items, and lowbed trailers for heavy equipment transport. Each vehicle is regularly maintained to ensure safe and reliable operation.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <span class="text-xl font-bold">Do you provide nationwide trucking services?</span>
+                        <i class="fas fa-plus text-primary transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-6 pt-0 bg-white">
+                        <p class="text-gray-700">Yes, we provide comprehensive trucking and logistics services across all major cities and regions. Our extensive network allows us to offer reliable transportation solutions nationwide, connecting your business to any location with efficiency and professionalism.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <span class="text-xl font-bold">How do you ensure cargo safety during transport?</span>
+                        <i class="fas fa-plus text-primary transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-6 pt-0 bg-white">
+                        <p class="text-gray-700">We implement multiple safety measures to protect your cargo during transportation. This includes proper securing techniques with appropriate tie-downs and fasteners, GPS tracking for real-time monitoring, comprehensive insurance coverage, experienced drivers trained in cargo handling, and regular vehicle maintenance. For specialized cargo, we utilize appropriate equipment and handling procedures to ensure maximum protection.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <span class="text-xl font-bold">Can you handle oversized or specialized cargo?</span>
+                        <i class="fas fa-plus text-primary transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-6 pt-0 bg-white">
+                        <p class="text-gray-700">Yes, we specialize in transporting oversized and specialized cargo. Our fleet includes lowbed trailers designed specifically for heavy equipment and machinery. Our team has extensive experience in securing permits, planning routes, and executing the safe transportation of oversized loads, ensuring compliance with all regulations while maintaining efficiency in delivery schedules.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <span class="text-xl font-bold">How do I request a quote for trucking services?</span>
+                        <i class="fas fa-plus text-primary transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-6 pt-0 bg-white">
+                        <p class="text-gray-700">Requesting a quote is simple. You can fill out our online form on the Contact page, call our customer service line, or send an email with details about your transportation needs. Please include information such as cargo type, weight, dimensions, pickup and delivery locations, and preferred timeline. Our team will promptly respond with a customized quote based on your specific requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Penguin Sales & Services</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner for comprehensive trucking and logistics solutions across the Philippines.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Our Services -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="bridal-car.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Bridal Car Services</a></li>
+                        <li><a href="towing.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Towing Services</a></li>
+                        <li><a href="trucking.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Trucking Services</a></li>
+                        <li><a href="equipment.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Heavy Equipment Rental</a></li>
+                        <li><a href="construction.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Construction & Maintenance</a></li>
+                        <li><a href="furniture.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Furniture</a></li>
+                        <li><a href="auto-parts.html" class="text-gray-400 hover:text-primary transition-colors duration-300">Auto Parts</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">123 Business Address, City, Philippines</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">+63 912 345 6789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">info@penguinsales.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">Monday-Saturday: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2023 Penguin Sales & Services Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-accent">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Toggle search overlay
+        document.getElementById('search-button').addEventListener('click', function() {
+            document.getElementById('search-overlay').classList.toggle('hidden');
+        });
+        
+        document.getElementById('close-search').addEventListener('click', function() {
+            document.getElementById('search-overlay').classList.add('hidden');
+        });
+        
+        // Toggle services dropdown
+        document.getElementById('services-dropdown-button').addEventListener('click', function() {
+            document.getElementById('services-dropdown').classList.toggle('hidden');
+        });
+        
+        // Toggle FAQ items
+        function toggleFAQ(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+            icon.classList.toggle('rotate-45');
+        }
+        
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('#services-dropdown-container')) {
+                document.getElementById('services-dropdown').classList.add('hidden');
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html> 

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Penguin Sales & Services Company - Professional Construction & Maintenance Services. We offer residential and commercial construction, renovation, and maintenance solutions.">
+    <title>Construction & Maintenance | Penguin Sales & Services Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4A76A', // Gold/bronze from logo
+                        secondary: '#F8F8F8',
+                        accent: '#8B6B43',  // Darker gold/bronze
+                        dark: '#212121',    // Dark background like in logo
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-secondary">
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center group transition-all duration-300">
+                        <div class="bg-gray-100 rounded-full p-2 shadow-sm overflow-hidden transform group-hover:shadow-md group-hover:bg-primary/10 transition-all duration-300">
+                            <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 w-10 object-contain">
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-3xl font-bold text-primary leading-tight">Penguin</span>
+                            <span class="block text-sm text-accent tracking-wider hidden md:block">SALES & SERVICES</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Home</a>
+                    <a href="about.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">About</a>
+                    <div class="relative group">
+                        <button class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-gold flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20 transform origin-top scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+                            <a href="bridal-car.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block px-4 py-2 text-sm bg-primary text-white">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-primary hover:text-gold py-2 px-3 rounded-md font-medium transition-all duration-300 border-b-2 border-transparent hover:border-gold">Contact</a>
+                    <a href="contact.html" class="ml-4 bg-primary hover:bg-accent text-white py-2 px-5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md">Get a Quote</a>
+                </div>
+                
+                <!-- Search Button (Desktop) -->
+                <div class="hidden lg:flex items-center">
+                    <button class="p-2 text-primary hover:text-gold transition-colors duration-300" id="search-toggle">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="nav-toggle" class="p-2 rounded-md text-primary hover:bg-gray-100 focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="nav-content" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-col space-y-1">
+                    <a href="index.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Home</a>
+                    <a href="about.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">About</a>
+                    
+                    <!-- Mobile Services Dropdown -->
+                    <div class="relative">
+                        <button id="mobile-services-btn" class="w-full text-left py-2 px-3 bg-primary text-white rounded-md transition-all duration-300 flex justify-between items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="mobile-services-menu" class="hidden bg-gray-50 rounded-md mt-1 mb-2 overflow-hidden">
+                            <a href="bridal-car.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Bridal Car Services</a>
+                            <a href="towing.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Towing Services 24/7</a>
+                            <a href="trucking.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Trucking Services</a>
+                            <a href="equipment.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Heavy Equipment Rental</a>
+                            <a href="construction.html" class="block py-2 px-5 bg-primary/20 text-primary font-medium">Construction & Maintenance</a>
+                            <a href="furniture.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Furniture</a>
+                            <a href="auto-parts.html" class="block py-2 px-5 text-primary hover:bg-primary hover:text-white">Auto Parts</a>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="py-2 px-3 text-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300">Contact</a>
+                    <a href="contact.html" class="py-2 px-4 mt-2 bg-primary text-white text-center rounded-full">Get a Quote</a>
+                    
+                    <!-- Mobile Search -->
+                    <div class="relative mt-3">
+                        <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 focus:outline-none">
+                        <button class="absolute right-0 top-0 mr-3 mt-2">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Overlay (Hidden by default) -->
+        <div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+            <div class="container mx-auto h-full flex items-center justify-center px-4">
+                <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl">
+                    <div class="flex items-center mb-4">
+                        <h3 class="text-xl font-bold flex-grow">Search Penguin Services</h3>
+                        <button id="close-search" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <input type="text" placeholder="Type to search..." class="w-full bg-gray-100 border border-gray-200 rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-0 top-0 bg-primary hover:bg-accent text-white rounded-full h-full px-6 transition-colors duration-300">
+                            <i class="fas fa-search mr-2"></i> Search
+                        </button>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p>Popular searches: Bridal cars, Towing service, Equipment rental</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title Banner -->
+    <section class="relative bg-primary text-white py-16" style="background-image: url('https://images.pexels.com/photos/2590716/pexels-photo-2590716.jpeg'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 z-10 relative">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Construction & Maintenance</h1>
+            <p class="text-xl md:text-2xl mb-2">Professional building services for all your needs</p>
+            <nav class="text-sm" aria-label="Breadcrumb">
+                <ol class="flex">
+                    <li><a href="index.html" class="hover:text-accent">Home</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-white/80">Construction & Maintenance</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Expert Construction & Maintenance Services</h2>
+                    <p class="text-gray-700 mb-6">At Penguin Sales & Services, we provide comprehensive construction and maintenance solutions for both residential and commercial properties. Our team of skilled professionals delivers high-quality workmanship with attention to detail and commitment to excellence.</p>
+                    
+                    <p class="text-gray-700 mb-6">From new construction projects to renovations and regular maintenance, we handle all aspects of building services with precision and care. We work closely with our clients to understand their specific needs and deliver results that exceed expectations.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Experienced Team</h3>
+                                <p class="text-gray-700">Skilled professionals with years of experience in the construction industry</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Quality Materials</h3>
+                                <p class="text-gray-700">We use only high-quality materials that meet industry standards</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Timely Completion</h3>
+                                <p class="text-gray-700">Projects delivered on schedule and within the agreed budget</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Comprehensive Solutions</h3>
+                                <p class="text-gray-700">End-to-end services from planning and design to construction and maintenance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg" alt="Construction Services" class="w-full img-hover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Categories -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Construction Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg" alt="Residential Construction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Residential Construction</h3>
+                        <p class="text-gray-700 mb-4">Complete home building services including new construction, home additions, and major renovations tailored to your lifestyle.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">Custom Solutions</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg" alt="Commercial Construction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Commercial Construction</h3>
+                        <p class="text-gray-700 mb-4">Building solutions for offices, retail spaces, restaurants, and other commercial properties with focus on functionality and aesthetics.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">Professional Execution</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg" alt="Renovation Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Renovation Services</h3>
+                        <p class="text-gray-700 mb-4">Transform your existing space with our comprehensive renovation services for kitchens, bathrooms, basements, and more.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">Modern Designs</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg" alt="Interior Finishing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Interior Finishing</h3>
+                        <p class="text-gray-700 mb-4">Premium interior work including drywall, painting, flooring, cabinetry, and custom finishes to complete your space.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">Quality Craftsmanship</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/4513940/pexels-photo-4513940.jpeg" alt="Maintenance Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Maintenance Services</h3>
+                        <p class="text-gray-700 mb-4">Regular and preventive maintenance for commercial buildings and residential properties to ensure longevity and safety.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">Preventive Care</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-60 bg-gray-200">
+                        <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" alt="Project Management" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Project Management</h3>
+                        <p class="text-gray-700 mb-4">Comprehensive project management services to oversee your construction project from concept to completion.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">End-to-End Service</span>
+                            <a href="contact.html" class="bg-primary hover:bg-accent text-white py-2 px-4 rounded-full transition duration-300">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Construction Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                    <div class="text-primary text-4xl mb-4 mt-4">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Consultation</h3>
+                    <p class="text-gray-700">Initial meeting to understand your needs, vision, and budget for the project.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                    <div class="text-primary text-4xl mb-4 mt-4">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Design & Planning</h3>
+                    <p class="text-gray-700">Detailed designs, cost estimates, material selection, and project timeline development.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                    <div class="text-primary text-4xl mb-4 mt-4">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Construction</h3>
+                    <p class="text-gray-700">Professional execution of the project with regular progress updates and quality checks.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">4</div>
+                    <div class="text-primary text-4xl mb-4 mt-4">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Completion</h3>
+                    <p class="text-gray-700">Final inspection, quality assurance, and handover of the completed project.</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="contact.html" class="bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-md">Start Your Project Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Need Construction or Maintenance Services?</h2>
+            <p class="text-white/90 text-xl mb-8">Contact us today for a free consultation and estimate.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-full transition duration-300 shadow-md">Get in Touch</a>
+                <a href="tel:+6391234567890" class="bg-transparent hover:bg-white/10 text-white font-bold py-3 px-6 rounded-full border border-white transition duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6">
+                    <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-md text-left">
+                        <span class="font-bold">Do you handle both residential and commercial projects?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-md hidden mt-[-5px]">
+                        <p class="text-gray-700">Yes, we have extensive experience in both residential and commercial construction projects. Our team is equipped to handle projects of various scales, from home renovations to large commercial buildings.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-md text-left">
+                        <span class="font-bold">Are you licensed and insured?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-md hidden mt-[-5px]">
+                        <p class="text-gray-700">Absolutely. We maintain all necessary licenses and certifications required for construction work in our service areas. We are fully insured, including liability insurance and workers' compensation, to protect both our clients and our workers.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-md text-left">
+                        <span class="font-bold">How do you ensure quality in your construction projects?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-md hidden mt-[-5px]">
+                        <p class="text-gray-700">Quality is our top priority. We have rigorous quality control processes in place, including regular inspections at key project milestones. We use only high-quality materials and work with skilled tradespeople. Our project managers oversee all aspects of construction to ensure everything meets our standards.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-md text-left">
+                        <span class="font-bold">Do you offer maintenance contracts for commercial properties?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-md hidden mt-[-5px]">
+                        <p class="text-gray-700">Yes, we offer customized maintenance contracts for commercial properties. These can include regular inspections, preventive maintenance, emergency repairs, and scheduled upkeep. We work with property managers to develop maintenance plans that meet the specific needs of each building.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/logo.png" alt="Penguin Sales & Services Logo" class="h-10 mr-3">
+                        <span class="text-xl font-bold text-primary">Penguin</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted partner for all automotive, transportation, and construction needs. Quality service since 1995.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="bridal-car.html" class="text-gray-400 hover:text-primary">Bridal Car Services</a></li>
+                        <li><a href="towing.html" class="text-gray-400 hover:text-primary">Towing Services 24/7</a></li>
+                        <li><a href="trucking.html" class="text-gray-400 hover:text-primary">Trucking Services</a></li>
+                        <li><a href="equipment.html" class="text-gray-400 hover:text-primary">Heavy Equipment Rental</a></li>
+                        <li><a href="construction.html" class="text-gray-400 hover:text-primary">Construction & Maintenance</a></li>
+                        <li><a href="furniture.html" class="text-gray-400 hover:text-primary">Furniture</a></li>
+                        <li><a href="auto-parts.html" class="text-gray-400 hover:text-primary">Auto Parts</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 Business Avenue, Makati City, Philippines</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i>
+                            <span class="text-gray-400">+63 912 345 6789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@penguinservices.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-primary mr-3"></i>
+                            <span class="text-gray-400">Mon-Sat: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2023 Penguin Sales & Services Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-content').classList.toggle('hidden');
+        });
+        
+        // Mobile Services Dropdown
+        document.getElementById('mobile-services-btn').addEventListener('click', function() {
+            document.getElementById('mobile-services-menu').classList.toggle('hidden');
+        });
+        
+        // Search Overlay
+        document.getElementById('search-toggle').addEventListener('click', function() {
+            document.getElementById('search-overlay').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-search').addEventListener('click', function() {
+            document.getElementById('search-overlay').classList.add('hidden');
+        });
+        
+        // FAQ Toggles
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>
